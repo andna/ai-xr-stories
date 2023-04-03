@@ -9,11 +9,14 @@ export async function OpenAIStream(payload, isGPT3 = false) {
     const res = await fetch(`https://api.openai.com/v1/${isGPT3 ? "chat/" : ""}completions`, {
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer ${process.env.API_KEY_OPENAI}`,
         },
         method: "POST",
         body: JSON.stringify(payload),
     });
+
+
+    console.log(isGPT3)
 
     const stream = new ReadableStream({
         async start(controller) {
