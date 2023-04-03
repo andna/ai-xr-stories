@@ -117,6 +117,7 @@ canvas{
   transform: scale(1.4);
   line-height: 0.7rem;
   color: white;
+  display:none;
 }
 
 .images-checkbox label{
